@@ -40,6 +40,24 @@ php artisan storage:link
 npm ci && npm run build
 ```
 
+## Aggiornare il sito (deploy)
+
+Dopo la prima installazione, ogni aggiornamento si fa sul server con un solo comando, dalla cartella del progetto:
+
+```bash
+./deploy.sh
+```
+
+Lo script mette il sito in manutenzione, scarica l'ultima versione da GitHub, installa le librerie, compila la grafica, aggiorna il database e le cache, poi rimette il sito online (anche in caso di errore). Non tocca il file `.env` né le foto caricate.
+
+Se sull'hosting PHP o Composer hanno un nome diverso:
+
+```bash
+PHP_BIN=/usr/bin/php8.3 COMPOSER_BIN=~/composer.phar ./deploy.sh
+```
+
+Se sul server non c'è Node.js, compilare la grafica su un altro computer (`npm run build`) e caricare la cartella `public/build`.
+
 Cron da aggiungere sul server:
 
 ```
