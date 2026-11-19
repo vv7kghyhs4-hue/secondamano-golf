@@ -1,0 +1,62 @@
+/* Caratteri ospitati sul nostro server (nessuna chiamata a Google Fonts: meglio per la privacy). */
+@import '@fontsource-variable/inter';
+@import '@fontsource/inter-tight/700.css';
+@import '@fontsource/inter-tight/800.css';
+
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+/*
+ * Kit grafico Secondamano.golf – direzione B "Moderno minimale".
+ * Colori e caratteri decisi il 18.11.2026.
+ */
+@theme {
+    --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Inter Tight', 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+
+    --color-ink: #111827;          /* testi, blu-notte */
+    --color-fairway: #15803d;      /* azioni, prezzi */
+    --color-fairway-dark: #166534; /* hover */
+    --color-fairway-light: #dcfce7;/* badge */
+    --color-fairway-bright: #4ade80; /* su sfondo scuro */
+    --color-paper: #f9fafb;        /* sfondo pagina */
+    --color-line: #e5e7eb;         /* bordi */
+    --color-muted: #4b5563;        /* testi secondari (contrasto AA) */
+
+    --radius-card: 14px;
+}
+
+@layer base {
+    body {
+        @apply bg-paper font-sans text-ink antialiased;
+    }
+    h1, h2, h3 {
+        @apply font-display tracking-tight;
+    }
+    a {
+        @apply text-fairway hover:text-fairway-dark;
+    }
+}
+
+@layer components {
+    .btn-primary {
+        @apply inline-flex h-11 items-center justify-center rounded-[10px] bg-fairway px-5 text-[15px] font-semibold text-white hover:bg-fairway-dark;
+    }
+    .btn-secondary {
+        @apply inline-flex h-11 items-center justify-center rounded-[10px] border border-gray-300 bg-white px-5 text-[15px] font-semibold text-ink hover:bg-gray-50;
+    }
+    .badge {
+        @apply inline-flex items-center gap-1 rounded-full bg-gray-100 px-2.5 py-1 text-xs font-semibold text-gray-700;
+    }
+    .badge-green {
+        @apply bg-fairway-light text-green-900;
+    }
+    .field {
+        @apply h-11 w-full rounded-[10px] border border-gray-300 bg-white px-3 text-[15px] text-ink focus:border-fairway focus:outline-none focus:ring-2 focus:ring-fairway/20;
+    }
+    .ad-slot {
+        @apply flex flex-col items-center justify-center gap-1 rounded-xl border border-dashed border-gray-300 bg-white p-3;
+    }
+}
